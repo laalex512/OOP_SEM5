@@ -27,7 +27,6 @@ public class ContactServiceImpl implements ContactService<User, Phone>{
 	@Override
 	public Contact createContact(User user, ArrayList<Phone> phones) {
 		if (this.isCorrect(user, phones)) {
-			System.out.println(1);
 			Contact contact = new Contact(user);
 			for (Phone i : phones) {
 				contact.addPhone(i);

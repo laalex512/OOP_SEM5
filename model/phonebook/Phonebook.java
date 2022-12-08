@@ -14,6 +14,10 @@ public class Phonebook {
 		contacts = new ArrayList<>();
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public void addContact(Contact contact){
 		this.contacts.add(contact);
 	}

@@ -11,7 +11,7 @@ public class Phone {
 
 	@Override
 	public String toString() {
-		return "phoneNumber: " + phoneNumber;
+		return phoneNumber;
 	}
 
 	public String getPhoneNumber() {

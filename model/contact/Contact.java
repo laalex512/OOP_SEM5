@@ -5,11 +5,19 @@ import java.util.Objects;
 
 public class Contact {
 	private User user;
-	ArrayList<Phone> phones;
+	private ArrayList<Phone> phones;
 
 	public Contact(User user) {
 		this.user = user;
 		phones = new ArrayList<>();
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public ArrayList<Phone> getPhones() {
+		return phones;
 	}
 
 	@Override
@@ -35,9 +43,12 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return "Contact{" +
-			 "user=" + user +
-			 ", phones=" + phones +
-			 '}';
+		StringBuilder message = new StringBuilder();
+		message.append("{User:" + user + ", phones:[");
+		for (int i = 0; i< this.phones.size(); i++){
+			message.append("phoneNumber "+ String.valueOf(i+1) + ": " + this.phones.get(i) + ",");
+		}
+		message.append("]");
+		return message.toString();
 	}
 }
