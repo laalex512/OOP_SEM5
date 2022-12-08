@@ -33,7 +33,7 @@ public class ReadFromJson {
 		User user = new User(line.get("firstName").toString(), line.get("lastName").toString());
 		user.setCompany(line.get("company").toString());
 		String phonesLine = line.get("Phones").toString();
-		phonesLine.replace("[","").replace("]","");
+		phonesLine = phonesLine.replace("[","").replace("]","");
 		String[] phonesArray = phonesLine.split(",");
 		ArrayList<Phone> phones = new ArrayList<>();
 		for (String i: phonesArray){

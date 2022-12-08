@@ -9,6 +9,7 @@ import Sem5.model.service.PhonebookService;
 import Sem5.utils.ReadFromJson;
 import Sem5.utils.WriteToJson;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class Controller {
 	public static void startApp() {
@@ -40,10 +41,15 @@ public class Controller {
 		listContacts.add(cont2);
 		listContacts.add(cont3);
 
+		Logger logger = Logger.getAnonymousLogger();
+		StringBuilder outputMessage = new StringBuilder();
+
 		Phonebook pb1 = new PhonebookService().createPhonebook("pb1", listContacts);
 		for (Contact i: pb1.getContacts()){
-			System.out.println(i);
+			outputMessage.append("\n" + i.toString());
 		}
+
+		logger.info(outputMessage.toString());
 
 
 		String pathFile = "Sem5/book1.json";
@@ -54,9 +60,12 @@ public class Controller {
 		ReadFromJson jsonReader = new ReadFromJson();
 		Phonebook pb2 = jsonReader.readJson(pathFile);
 
+		outputMessage.setLength(0);
+
 		for (Contact i: pb2.getContacts()){
-			System.out.println(i);
+			outputMessage.append("\n" + i.toString());
 		}
+		logger.info(outputMessage.toString());
 
 	}
 }
